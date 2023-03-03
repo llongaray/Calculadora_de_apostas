@@ -11,15 +11,22 @@ while True:
   mt1 = float(input("Insira o valor do multiplicador do Time 1: "))
   mt2 = float(input("Insira o valor do multiplicador do Time 2: "))
   mep = float(input("Insira o valor do multiplicador do empate: "))
+  min = int(input("Insira o valor minimo a ser apostado: "))
+  max = int(input("Insira o valor maximo a ser apostado: "))
 
   while True:
-    t1 = random.randint(5, 30)
-    t2 = random.randint(5, 30)
-    ep = random.randint(5, 30)
+    t1 = random.randint(min, max)
+    t2 = random.randint(min, max)
+    ep = random.randint(min, max)
 
     G1 = mt1 * t1
     G2 = mt2 * t2
     Gep = mep * ep
+    
+   # deBugg
+   # print("t1: {}".format(t1))
+   # print("t2: {}".format(t2))
+   # print("ep: {}".format(ep))
 
     T1 = t2 + ep
     T2 = t1 + ep
@@ -32,26 +39,21 @@ while True:
   L2 = mt2 * t2 - (t1 + ep)
   Lep = mep * ep - (t1 + t2)
 
-  print("Time 1!")
-  print("Valor Ganho Total: {}\n".format(G1))
-  print("t1: {}".format(t1))
-  print("t2: {}".format(t2))
-  print("ep: {}".format(ep))
-  print("L: {}".format(L1))
+  print("\n\n  Valores a apostar:")
+  print("Vitória do Time 1: {}".format(t1))
+  print("Vitória do Time 2: {}".format(t2))
+  print("Empate dos times: {}\n".format(ep))
+  
+  print("  Ganhos caso:")
+  print("Vitória do Time 1: {}".format(G1))
+  print("Vitória do Time 2: {}".format(G2))
+  print("Empate dos times: {}\n".format(Gep))
+  
+  print("  Lucros caso:")
+  print("Vitória do Time 1: {}".format(L1))
+  print("Vitória do Time 2: {}".format(L2))
+  print("Empate dos times: {}\n".format(Lep))
 
-  print("Time 2!")
-  print("Valor Ganho Total: {}\n".format(G2))
-  print("t1: {}".format(t1))
-  print("t2: {}".format(t2))
-  print("ep: {}".format(ep))
-  print("L: {}".format(L2))
-
-  print("Empate!")
-  print("Valor Ganho Total: {}\n".format(Gep))
-  print("t1: {}".format(t1))
-  print("t2: {}".format(t2))
-  print("ep: {}".format(ep))
-  print("L: {}".format(Lep))
 
   opcao = int(input("\n\nDe novo? (1-Sim | 2-Nao)"))
 
