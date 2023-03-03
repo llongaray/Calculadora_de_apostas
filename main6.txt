@@ -13,7 +13,6 @@ while True:
   mep = float(input("Insira o valor do multiplicador do empate: "))
   min = int(input("Insira o valor minimo a ser apostado: "))
   max = int(input("Insira o valor maximo a ser apostado: "))
-  min_lucro = float(input("Insira o valor minimo de ganhos: "))
 
   while True:
     t1 = random.randint(min, max)
@@ -25,20 +24,16 @@ while True:
     Gep = mep * ep
     
    # deBugg
-    print("t1: {}".format(t1))
-    print("t2: {}".format(t2))
-    print("ep: {}".format(ep))
+   # print("t1: {}".format(t1))
+   # print("t2: {}".format(t2))
+   # print("ep: {}".format(ep))
 
     T1 = t2 + ep
     T2 = t1 + ep
     Tep = t1 + t2
 
     if G1 > T1 and G2 > T2 and Gep > Tep:
-        L1 = mt1 * t1 - (t2 + ep)
-        L2 = mt2 * t2 - (t1 + ep)
-        Lep = mep * ep - (t1 + t2)
-        if L1 > min_lucro and L2 > min_lucro and Lep > min_lucro:
-                break
+      break
 
   L1 = mt1 * t1 - (t2 + ep)
   L2 = mt2 * t2 - (t1 + ep)
