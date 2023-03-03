@@ -1,0 +1,23 @@
+# Solicita ao usuário inserir os valores das variáveis
+t1 = float(input("Insira o valor de t1: "))
+t2 = float(input("Insira o valor de t2: "))
+ep = float(input("Insira o valor de ep: "))
+mt1 = float(input("Insira o valor de mt1: "))
+mt2 = float(input("Insira o valor de mt2: "))
+mep = float(input("Insira o valor de mep: "))
+
+# Solicita ao usuário qual simulação deseja fazer
+opcao = int(input("Qual simulação deseja fazer?\n1 - Time 1 vence\n2 - Time 2 vence\n3 - Empate\n"))
+
+# Realiza a simulação com base na escolha do usuário
+if opcao == 1:
+    L = mt1 * t1 - (t2 + ep)
+elif opcao == 2:
+    L = mt2 * t2 - (t1 + ep)
+elif opcao == 3:
+    L = mep * ep - (t1 + t2)
+else:
+    print("Opção inválida")
+
+# Mostra o resultado no console/terminal
+print("L vale: %f" % L)

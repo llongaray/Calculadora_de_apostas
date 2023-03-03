@@ -1,0 +1,46 @@
+import random
+
+# Define os multiplicadores escolhidos pelo usuário
+mt1 = float(input("Insira o valor do multiplicador do Time 1: "))
+mt2 = float(input("Insira o valor do multiplicador do Time 2: "))
+mep = float(input("Insira o valor do multiplicador do empate: "))
+
+# Define o total apostado (T)
+T = 0
+while T == 0:
+    # Atribui valores aleatórios para t1, t2 e ep dentro do intervalo de 5 a 100
+    t1 = random.randint(5, 100)
+    t2 = random.randint(5, 100)
+    ep = random.randint(5, 100)
+
+    # Verifica se a soma de t1, t2 e ep é menor que o total apostado (T)
+    if t1 + t2 + ep < 1.1 * T:
+        continue
+
+    # Calcula o lucro para cada uma das 3 opções
+    L1 = mt1 * t1 - (t2 + ep)
+    L2 = mt2 * t2 - (t1 + ep)
+    L3 = mep * ep - (t1 + t2)
+
+    # Verifica qual opção gera o maior lucro
+    if L1 >= L2 and L1 >= L3:
+        T = t1 + t2 + ep
+        print("Time 1 venceu!")
+        print("t1: {}".format(t1))
+        print("t2: {}".format(t2))
+        print("ep: {}".format(ep))
+        print("L: {}".format(L1))
+    elif L2 >= L1 and L2 >= L3:
+        T = t1 + t2 + ep
+        print("Time 2 venceu!")
+        print("t1: {}".format(t1))
+        print("t2: {}".format(t2))
+        print("ep: {}".format(ep))
+        print("L: {}".format(L2))
+    else:
+        T = t1 + t2 + ep
+        print("Empate!")
+        print("t1: {}".format(t1))
+        print("t2: {}".format(t2))
+        print("ep: {}".format(ep))
+        print("L: {}".format(L3))

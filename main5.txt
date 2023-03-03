@@ -1,0 +1,58 @@
+import random
+
+t1 = 0
+t2 = 0
+ep = 0
+L1 = 0
+L2 = 0
+Lep = 0
+T = t1 + t2 + ep
+
+mt1 = float(input("Insira o valor do multiplicador do Time 1: "))
+mt2 = float(input("Insira o valor do multiplicador do Time 2: "))
+mep = float(input("Insira o valor do multiplicador do empate: "))
+
+while True:
+    t1 = random.randint(5, 100)
+    t2 = random.randint(5, 100)
+    ep = random.randint(5, 100)
+
+    L1 = mt1*t1 - (t2+ep)
+    if L1 > T:
+        break
+
+print("Time 1!")
+print("t1: {}".format(t1))
+print("t2: {}".format(t2))
+print("ep: {}".format(ep))
+print("L: {}".format(L1))
+
+while True:
+    t1 = random.randint(5, 100)
+    t2 = random.randint(5, 100)
+    ep = random.randint(5, 100)
+
+    L2 = mt2*t2 - (t1+ep)
+    if L2 > T:
+        break
+
+print("Time 2!")
+print("t1: {}".format(t1))
+print("t2: {}".format(t2))
+print("ep: {}".format(ep))
+print("L: {}".format(L2))
+
+while True:
+    t1 = random.randint(5, 100)
+    t2 = random.randint(5, 100)
+    ep = random.randint(5, 100)
+
+    Lep = mep*ep - (t1+ t2)
+    if Lep > T:
+        break
+
+print("Empate!")
+print("t1: {}".format(t1))
+print("t2: {}".format(t2))
+print("ep: {}".format(ep))
+print("L: {}".format(Lep))

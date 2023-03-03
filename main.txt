@@ -1,0 +1,32 @@
+# importar biblioteca para realizar perguntas ao usuário
+import questionary
+
+# realizar perguntas ao usuário
+t1_multiplier = questionary.text("Digite o multiplicador da vitória do time 1:").ask()
+ep_multiplier = questionary.text("Digite o multiplicador do empate:").ask()
+t2_multiplier = questionary.text("Digite o multiplicador da vitória do time 2:").ask()
+max_bet = questionary.text("Digite o valor máximo a ser apostado:").ask()
+
+# converter as respostas para números
+t1_multiplier = float(t1_multiplier)
+ep_multiplier = float(ep_multiplier)
+t2_multiplier = float(t2_multiplier)
+max_bet = float(max_bet)
+
+# definir as equações
+def calc_t1_bet(t2_bet, ep_bet):
+    return (max_bet - t2_bet - ep_bet) / (t1_multiplier - 1)
+
+def calc_t2_bet(t1_bet, ep_bet):
+    return (max_bet - t1_bet - ep_bet) / (t2_multiplier - 1)
+
+def calc_ep_bet(t1_bet, t2_bet):
+    return (max_bet - t1_bet - t2_bet) / (ep_multiplier - 1)
+
+# calcular as apostas ideais
+t1_bet = round(calc_t1_bet(0, 0), 2)
+t2_bet = round(calc_t2_bet(0, 0), 2)
+ep_bet = round(calc_ep_bet(0, 0), 2)
+
+# exibir os resultados
+print(f"Para ter lucro mesmo se: \n- Time 1 vencer (multiplicador {t1_multiplier:.2f}): aposte R$ {t1_bet:.2f}\n- Empate (multiplicador {ep_multiplier:.2f}): aposte R$ {ep_bet:.2f}\n- Time 2 vencer (multiplicador {t2_multiplier:.2f}): aposte R$ {t2_bet:.2f}")
